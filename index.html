@@ -400,7 +400,7 @@
 </code></pre>
 </li>
 <li>缺点<pre><code>    - 有两个机器0
-    - 加法运算复杂
+        - 加法运算复杂
 </code></pre>
 </li>
 </ul>
@@ -441,8 +441,47 @@
 <td>11111111 1.0000000</td>
 </tr>
 </tbody></table>
-<p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20210308091134165.png" alt="image-20210308091134165"></p>
-<p><strong>n+1位移码：</strong>[x]<del>移</del>=2^n^+x</p>
+<p><img src="https://raw.githubusercontent.com/wzzzzx/wzzzzx.github.io/master/img/image-20210310084010841.png" alt="image-20210308091134165"></p>
+<p><strong>n+1位移码：</strong></p>
+<p>[x]<del>移</del>=2^n^+x</p>
+<p><strong>浮点数的表示方法：</strong></p>
+<ul>
+<li>符号</li>
+<li>有效数值</li>
+<li>基数</li>
+<li>指数</li>
+</ul>
+<p>注意1：精度与范围：<code>用尽量短的字节，实现更高的精度和最大的范围。</code></p>
+<ul>
+<li>尾数越多 – 有效精度越高</li>
+<li>阶码越多 – 范围越大</li>
+</ul>
+<p>注意2：浮点数分布</p>
+<p>注意3：阶码和尾数的符号</p>
+<p>注意4：尾数规格化：<code>尽可能多的保留有效数字。</code></p>
+<p><strong>原码规格化：</strong></p>
+<ul>
+<li><p>实现：</p>
+<ul>
+<li>若为0.00…01xxx,则小数点右移。</li>
+<li>若为1xxx.xxx,则小数点左移。</li>
+</ul>
+</li>
+<li><p>要求：尾数域的最高有效位不为0，即为<strong>0.1xxx…x的形式</strong>。</p>
+</li>
+<li><p>判断：<code>只要判断最高数值位是否为1。</code></p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wzzzzx/wzzzzx.github.io/master/img/image-20210310084040418.png" alt="image-20210310084010841"></p>
+<p><strong>补码规格化：</strong></p>
+<ul>
+<li>统一标准：<code>符号位⊕尾数最高有效位=1。</code></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wzzzzx/wzzzzx.github.io/master/img/image-20210308091134165.png" alt="image-20210310084040418"></p>
+<p><strong>IEEE 754 标准</strong></p>
+<p>x=(-1)^s^x(1.M)x2^E-127^</p>
+<p>S E M</p>
+<p><img src="https://raw.githubusercontent.com/wzzzzx/wzzzzx.github.io/master/img/image-20210310092551849.png" alt="image-20210310092551849"></p>
 
       
     </div>
